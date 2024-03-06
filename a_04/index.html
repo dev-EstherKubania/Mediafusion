@@ -241,7 +241,7 @@
       </section>
 
       <section>
-        <form action="#" >
+        <form action="#" id="reviewForm">
           <h2>User Experience Review</h2>
 
           <label for="name">Your Name:</label>
@@ -276,6 +276,29 @@
            
             image.src = 'image' + currentImage + '.jpeg';
             image.alt = 'Image ' + currentImage;
+          
+        document.addEventListener("DOMContentLoaded", function () {
+        function submitForm() {
+
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var userExperience = document.getElementById("userExperience").value;
+
+          var formData = "Name: " + name + "\nEmail: " + email + "\nUser Experience Review:\n" + userExperience + "\n\n";
+
+          console.log("Form data:", formData);
+
+          alert("Thank you for the review! Your form has been submitted successfully.");
+
+          document.getElementById("reviewForm").reset();
+        }
+
+        var form = document.getElementById("reviewForm");
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          submitForm();
+        });
+      });
         }
     </script>
   </body>
